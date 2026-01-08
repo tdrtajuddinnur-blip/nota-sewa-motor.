@@ -1,50 +1,169 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Nota Sewa Motor</title>
-  <style>
-    body{font-family:Arial;background:#f4f4f4;padding:20px}
-    .nota{max-width:400px;margin:auto;background:#fff;padding:20px}
-    h2{text-align:center}
-    table{width:100%;border-collapse:collapse}
-    td{padding:5px}
-    .total{font-weight:bold;border-top:1px solid #000}
-    @media print{
-      input,button{display:none}
-      body{background:#fff}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bukti Pembayaran Sewa Motor</title>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background:#2196f3;
+  margin:0;
+  padding:20px;
+}
+
+.container{
+  max-width:420px;
+  margin:auto;
+  background:#fff;
+  border-radius:10px;
+  padding:20px;
+}
+
+h1{
+  text-align:center;
+  margin:5px 0;
+}
+
+.subtitle{
+  text-align:center;
+  color:#777;
+  font-size:14px;
+}
+
+.line{
+  border-bottom:1px solid #ddd;
+  margin:15px 0;
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  margin:8px 0;
+}
+
+input{
+  width:160px;
+  border:1px solid #ccc;
+  padding:4px;
+  text-align:right;
+}
+
+input.text{
+  text-align:left;
+}
+
+.total{
+  font-weight:bold;
+  font-size:18px;
+}
+
+.status{
+  color:green;
+  font-weight:bold;
+}
+
+button{
+  width:100%;
+  padding:10px;
+  background:#2196f3;
+  color:white;
+  border:none;
+  border-radius:5px;
+  font-size:16px;
+  margin-top:15px;
+}
+
+/* ===== MODE CETAK ===== */
+@media print{
+  body{
+    background:white;
+    padding:0;
+  }
+
+  input{
+    border:none;
+    outline:none;
+    background:transparent;
+  }
+
+  button{
+    display:none;
+  }
+
+  .container{
+    box-shadow:none;
+  }
+}
+</style>
+
 </head>
 <body>
 
-<div class="nota">
-  <h2>NOTA SEWA MOTOR</h2>
+<div class="container">
+  <h1>RENTAL MOTOR</h1>
+  <div class="subtitle">Cepat • Aman • Terpercaya</div>
 
-  Nama Penyewa: <input type="text"><br><br>
-  Motor: <input type="text"><br><br>
-  Lama Sewa (hari): <input type="number" id="hari"><br><br>
-  Harga / hari: <input type="number" id="harga"><br><br>
-  Biaya Antar Jemput: <input type="number" id="antar"><br><br>
+  <div class="line"></div>
+
+  <div class="row">
+    <div>Pelanggan</div>
+    <input class="text" id="nama" value="YUDA">
+  </div>
+
+  <div class="row">
+    <div>Motor</div>
+    <input class="text" id="motor" value="Honda Beat">
+  </div>
+
+  <div class="row">
+    <div>Harga / Hari</div>
+    <input id="harga" type="number" value="70000">
+  </div>
+
+  <div class="row">
+    <div>Lama Sewa (Hari)</div>
+    <input id="lama" type="number" value="2">
+  </div>
+
+  <div class="row">
+    <div>Biaya Antar Jemput</div>
+    <input id="antar" type="number" value="0">
+  </div>
+
+  <div class="line"></div>
+
+  <div class="row total">
+    <div>Total Biaya</div>
+    <div id="total">Rp 140.000</div>
+  </div>
+
+  <div class="row">
+    <div>Keterangan</div>
+    <div class="status">LUNAS</div>
+  </div>
+
+  <div class="line"></div>
+
+  <div style="text-align:center;font-size:13px;">
+    Terima kasih atas kepercayaan Anda<br>
+    <b>Rental Motor – Solusi Perjalanan Anda</b>
+  </div>
 
   <button onclick="hitung()">Hitung</button>
-  <button onclick="window.print()">Cetak</button>
-
-  <table>
-    <tr class="total">
-      <td>Total</td>
-      <td id="total">Rp 0</td>
-    </tr>
-  </table>
+  <button onclick="window.print()">Cetak Bukti</button>
 </div>
 
 <script>
 function hitung(){
-  let hari = document.getElementById("hari").value || 0;
-  let harga = document.getElementById("harga").value || 0;
-  let antar = document.getElementById("antar").value || 0;
-  let total = (hari * harga) + Number(antar);
-  document.getElementById("total").innerText = "Rp " + total;
+  let harga = parseInt(document.getElementById("harga").value) || 0;
+  let lama = parseInt(document.getElementById("lama").value) || 0;
+  let antar = parseInt(document.getElementById("antar").value) || 0;
+
+  let total = (harga * lama) + antar;
+  document.getElementById("total").innerText =
+    "Rp " + total.toLocaleString("id-ID");
 }
 </script>
 
