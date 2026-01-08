@@ -3,82 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bukti Pembayaran Rental Motor</title>
+<title>Bukti Pembayaran Sewa Motor</title>
 
 <style>
 body {
   font-family: Arial, sans-serif;
-  background: #2196f3;
+  background: #1e88e5;
   padding: 20px;
 }
 
-.container {
+.card {
   background: #fff;
-  max-width: 400px;
+  max-width: 420px;
   margin: auto;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 5px;
+  margin: 0;
 }
 
-.subtitle {
+.tagline {
   text-align: center;
-  color: #666;
+  color: #777;
   font-size: 14px;
   margin-bottom: 10px;
 }
 
-.tanggal {
+.title {
   text-align: center;
-  font-size: 14px;
-  margin-bottom: 15px;
+  margin: 10px 0;
+}
+
+.title b {
+  color: #1e88e5;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 15px 0;
 }
 
 .row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  font-size: 15px;
 }
 
-label {
-  width: 45%;
+.label {
+  color: #444;
 }
 
-input {
-  width: 50%;
-  padding: 5px;
+.value input {
+  border: none;
+  text-align: right;
+  font-size: 15px;
+  width: 160px;
+}
+
+.blue {
+  color: #1e88e5;
 }
 
 .total {
-  font-size: 18px;
   font-weight: bold;
+  font-size: 16px;
 }
 
-.status {
+.lunas {
   color: green;
   font-weight: bold;
-  border: none;
-  font-size: 16px;
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  background: #2196f3;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
 }
 
 .footer {
   text-align: center;
-  font-size: 13px;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #1e88e5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
   margin-top: 15px;
 }
 </style>
@@ -86,80 +100,98 @@ button {
 
 <body>
 
-<div class="container">
+<div class="card">
   <h1>RENTAL MOTOR</h1>
-  <div class="subtitle">Cepat · Aman · Terpercaya</div>
+  <div class="tagline">Cepat · Aman · Terpercaya</div>
 
-  <div class="tanggal">
-    Tanggal :
-    <input type="date" id="tanggal">
+  <div class="title">
+    Bukti Pembayaran<br>
+    <b>SEWA MOTOR</b>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="label">Pelanggan</div>
+    <div class="value blue">Yth. Bapak / Ibu <b><input value="YUDA"></b></div>
   </div>
 
   <div class="row">
-    <label>Pelanggan</label>
-    <input type="text" value="YUDA">
+    <div class="label">Periode Sewa</div>
+    <div class="value"><input value="Des 2025"></div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="label">Motor</div>
+    <div class="value"><input value="Honda Beat"></div>
   </div>
 
   <div class="row">
-    <label>Motor</label>
-    <input type="text" value="Honda Beat">
+    <div class="label">Harga / Hari</div>
+    <div class="value">Rp <input id="harga" value="70000"></div>
   </div>
 
   <div class="row">
-    <label>Harga / Hari</label>
-    <input type="number" id="harga" value="100000">
+    <div class="label">Lama Sewa</div>
+    <div class="value"><input id="hari" value="2"> Hari</div>
   </div>
 
   <div class="row">
-    <label>Lama Sewa (Hari)</label>
-    <input type="number" id="hari" value="5">
-  </div>
-
-  <div class="row">
-    <label>Biaya Antar Jemput</label>
-    <input type="number" id="antar" value="20000">
+    <div class="label">Biaya Antar Jemput</div>
+    <div class="value">Rp <input id="antar" value="0"></div>
   </div>
 
   <hr>
 
   <div class="row total">
-    <label>Total Biaya</label>
-    <span id="total">Rp 0</span>
+    <div>Total Biaya</div>
+    <div id="total">Rp 0</div>
   </div>
 
   <div class="row">
-    <label>Keterangan</label>
-    <input type="text" value="LUNAS" class="status">
+    <div class="label">Keterangan</div>
+    <div class="value lunas"><input value="LUNAS"></div>
   </div>
+
+  <div class="row">
+    <div class="label">Admin</div>
+    <div class="value"><input value="Rental Motor"></div>
+  </div>
+
+  <div class="row">
+    <div class="label">Tanggal Pembayaran</div>
+    <div class="value"><input type="date" id="tanggal"></div>
+  </div>
+
+  <hr>
 
   <div class="footer">
     Terima kasih atas kepercayaan Anda<br>
+    telah menggunakan jasa sewa motor kami<br><br>
     <b>Rental Motor – Solusi Perjalanan Anda</b>
   </div>
 
-  <button onclick="hitung()">Hitung</button>
   <button onclick="window.print()">Cetak Bukti</button>
 </div>
 
 <script>
-function formatRupiah(angka) {
-  return "Rp " + angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+function rupiah(n){
+  return "Rp " + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");
 }
 
-function hitung() {
-  let harga = Number(document.getElementById("harga").value) || 0;
-  let hari = Number(document.getElementById("hari").value) || 0;
-  let antar = Number(document.getElementById("antar").value) || 0;
-
-  let total = (harga * hari) + antar;
-  document.getElementById("total").innerText = formatRupiah(total);
+function hitung(){
+  let h = Number(harga.value)||0;
+  let d = Number(hari.value)||0;
+  let a = Number(antar.value)||0;
+  total.innerText = rupiah(h*d + a);
 }
 
-// tanggal hari ini otomatis
+harga.oninput = hari.oninput = antar.oninput = hitung;
 document.getElementById("tanggal").valueAsDate = new Date();
-
 hitung();
 </script>
 
 </body>
-  </html>
+</html>
