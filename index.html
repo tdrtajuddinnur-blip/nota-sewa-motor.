@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Nota Sewa Motor</title>
+  <style>
+    body{font-family:Arial;background:#f4f4f4;padding:20px}
+    .nota{max-width:400px;margin:auto;background:#fff;padding:20px}
+    h2{text-align:center}
+    table{width:100%;border-collapse:collapse}
+    td{padding:5px}
+    .total{font-weight:bold;border-top:1px solid #000}
+    @media print{
+      input,button{display:none}
+      body{background:#fff}
+    }
+  </style>
+</head>
+<body>
+
+<div class="nota">
+  <h2>NOTA SEWA MOTOR</h2>
+
+  Nama Penyewa: <input type="text"><br><br>
+  Motor: <input type="text"><br><br>
+  Lama Sewa (hari): <input type="number" id="hari"><br><br>
+  Harga / hari: <input type="number" id="harga"><br><br>
+  Biaya Antar Jemput: <input type="number" id="antar"><br><br>
+
+  <button onclick="hitung()">Hitung</button>
+  <button onclick="window.print()">Cetak</button>
+
+  <table>
+    <tr class="total">
+      <td>Total</td>
+      <td id="total">Rp 0</td>
+    </tr>
+  </table>
+</div>
+
+<script>
+function hitung(){
+  let hari = document.getElementById("hari").value || 0;
+  let harga = document.getElementById("harga").value || 0;
+  let antar = document.getElementById("antar").value || 0;
+  let total = (hari * harga) + Number(antar);
+  document.getElementById("total").innerText = "Rp " + total;
+}
+</script>
+
+</body>
+  </html>
