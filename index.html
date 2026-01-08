@@ -3,150 +3,125 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bukti Pembayaran Sewa Motor</title>
+<title>Bukti Pembayaran Rental Motor</title>
 
 <style>
-body{
+body {
   font-family: Arial, sans-serif;
-  background:#2196f3;
-  margin:0;
-  padding:20px;
+  background: #2196f3;
+  padding: 20px;
 }
 
-.container{
-  max-width:420px;
-  margin:auto;
-  background:#fff;
-  border-radius:10px;
-  padding:20px;
+.container {
+  background: #fff;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-h1{
-  text-align:center;
-  margin:5px 0;
+h1 {
+  text-align: center;
+  margin-bottom: 5px;
 }
 
-.subtitle{
-  text-align:center;
-  color:#777;
-  font-size:14px;
+.subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 15px;
 }
 
-.line{
-  border-bottom:1px solid #ddd;
-  margin:15px 0;
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
-.row{
-  display:flex;
-  justify-content:space-between;
-  margin:8px 0;
+label {
+  width: 45%;
 }
 
-input{
-  width:160px;
-  border:1px solid #ccc;
-  padding:4px;
-  text-align:right;
+input {
+  width: 50%;
+  padding: 5px;
 }
 
-input.text{
-  text-align:left;
+.total {
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.total{
-  font-weight:bold;
-  font-size:18px;
+.status {
+  color: green;
+  font-weight: bold;
+  border: none;
+  font-size: 16px;
 }
 
-.status{
-  color:green;
-  font-weight:bold;
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
-button{
-  width:100%;
-  padding:10px;
-  background:#2196f3;
-  color:white;
-  border:none;
-  border-radius:5px;
-  font-size:16px;
-  margin-top:15px;
-}
-
-/* ===== MODE CETAK ===== */
-@media print{
-  body{
-    background:white;
-    padding:0;
-  }
-
-  input{
-    border:none;
-    outline:none;
-    background:transparent;
-  }
-
-  button{
-    display:none;
-  }
-
-  .container{
-    box-shadow:none;
-  }
+.footer {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 15px;
 }
 </style>
-
 </head>
+
 <body>
 
 <div class="container">
   <h1>RENTAL MOTOR</h1>
-  <div class="subtitle">Cepat • Aman • Terpercaya</div>
-
-  <div class="line"></div>
+  <div class="subtitle">Cepat · Aman · Terpercaya</div>
 
   <div class="row">
-    <div>Pelanggan</div>
-    <input class="text" id="nama" value="YUDA">
+    <label>Pelanggan</label>
+    <input type="text" id="nama" value="YUDA">
   </div>
 
   <div class="row">
-    <div>Motor</div>
-    <input class="text" id="motor" value="Honda Beat">
+    <label>Motor</label>
+    <input type="text" id="motor" value="Honda Beat">
   </div>
 
   <div class="row">
-    <div>Harga / Hari</div>
-    <input id="harga" type="number" value="70000">
+    <label>Harga / Hari</label>
+    <input type="number" id="harga" value="100000">
   </div>
 
   <div class="row">
-    <div>Lama Sewa (Hari)</div>
-    <input id="lama" type="number" value="2">
+    <label>Lama Sewa (Hari)</label>
+    <input type="number" id="hari" value="5">
   </div>
 
   <div class="row">
-    <div>Biaya Antar Jemput</div>
-    <input id="antar" type="number" value="0">
+    <label>Biaya Antar Jemput</label>
+    <input type="number" id="antar" value="20000">
   </div>
 
-  <div class="line"></div>
+  <hr>
 
   <div class="row total">
-    <div>Total Biaya</div>
-    <div id="total">Rp 140.000</div>
+    <label>Total Biaya</label>
+    <span id="total">Rp 0</span>
   </div>
 
   <div class="row">
-    <div>Keterangan</div>
-    <div class="status">LUNAS</div>
+    <label>Keterangan</label>
+    <input type="text" id="status" value="LUNAS" class="status">
   </div>
 
-  <div class="line"></div>
-
-  <div style="text-align:center;font-size:13px;">
+  <div class="footer">
     Terima kasih atas kepercayaan Anda<br>
     <b>Rental Motor – Solusi Perjalanan Anda</b>
   </div>
@@ -156,16 +131,21 @@ button{
 </div>
 
 <script>
-function hitung(){
-  let harga = parseInt(document.getElementById("harga").value) || 0;
-  let lama = parseInt(document.getElementById("lama").value) || 0;
-  let antar = parseInt(document.getElementById("antar").value) || 0;
-
-  let total = (harga * lama) + antar;
-  document.getElementById("total").innerText =
-    "Rp " + total.toLocaleString("id-ID");
+function formatRupiah(angka) {
+  return "Rp " + angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
+
+function hitung() {
+  let harga = Number(document.getElementById("harga").value) || 0;
+  let hari = Number(document.getElementById("hari").value) || 0;
+  let antar = Number(document.getElementById("antar").value) || 0;
+
+  let total = (harga * hari) + antar;
+  document.getElementById("total").innerText = formatRupiah(total);
+}
+
+hitung();
 </script>
 
 </body>
-  </html>
+                                              </html>
