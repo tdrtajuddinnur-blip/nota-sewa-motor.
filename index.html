@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bukti Pembayaran Sewa Motor</title>
+<title>Bukti Pembayaran</title>
 
 <style>
 body{
@@ -58,12 +58,24 @@ hr{
 .row{
     display:flex;
     justify-content:space-between;
+    align-items:center;
     font-size:15px;
     margin:10px 0;
 }
 
 .value{
     font-weight:500;
+    min-width:120px;
+    text-align:right;
+}
+
+/* BISA EDIT */
+.edit{
+    outline:none;
+}
+.edit:focus{
+    background:#f1f8ff;
+    border-radius:4px;
 }
 
 .bold{
@@ -105,11 +117,7 @@ button{
     cursor:pointer;
 }
 
-button:hover{
-    background:#1565c0;
-}
-
-/* PRINT */
+/* PRINT FIX */
 @media print{
     body{
         background:none;
@@ -141,56 +149,56 @@ button:hover{
 
     <div class="row">
         <div>Pelanggan</div>
-        <div class="value">YUDA</div>
+        <div class="value edit" contenteditable="true">YUDA</div>
     </div>
 
     <div class="row">
         <div>Periode Sewa</div>
-        <div class="value">Des 2025</div>
+        <div class="value edit" contenteditable="true">Des 2025</div>
     </div>
 
     <hr>
 
     <div class="row">
         <div>Motor</div>
-        <div class="value">Honda Beat</div>
+        <div class="value edit" contenteditable="true">Honda Beat</div>
     </div>
 
     <div class="row">
         <div>Harga / Hari</div>
-        <div class="value">Rp 70.000</div>
+        <div class="value edit" contenteditable="true">Rp 70.000</div>
     </div>
 
     <div class="row">
         <div>Lama Sewa</div>
-        <div class="value">2 Hari</div>
+        <div class="value edit" contenteditable="true">2 Hari</div>
     </div>
 
     <div class="row">
         <div>Biaya Antar Jemput</div>
-        <div class="value">Rp 0</div>
+        <div class="value edit" contenteditable="true">Rp 0</div>
     </div>
 
     <hr>
 
     <div class="row total">
         <div class="bold">Total Biaya</div>
-        <div class="bold">Rp 140.000</div>
+        <div class="bold edit" contenteditable="true">Rp 140.000</div>
     </div>
 
     <div class="row">
         <div>Keterangan</div>
-        <div class="lunas">LUNAS</div>
+        <div class="lunas edit" contenteditable="true">LUNAS</div>
     </div>
 
     <div class="row">
         <div>Admin</div>
-        <div class="value">Rental Motor</div>
+        <div class="value edit" contenteditable="true">Rental Motor</div>
     </div>
 
     <div class="row">
         <div>Tanggal Pembayaran</div>
-        <div class="value">25 Des 2025</div>
+        <div class="value edit" contenteditable="true">25 Des 2025</div>
     </div>
 
     <div class="footer">
