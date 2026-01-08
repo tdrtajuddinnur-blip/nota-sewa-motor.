@@ -29,6 +29,12 @@ h1 {
   text-align: center;
   color: #666;
   font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.tanggal {
+  text-align: center;
+  font-size: 14px;
   margin-bottom: 15px;
 }
 
@@ -84,14 +90,19 @@ button {
   <h1>RENTAL MOTOR</h1>
   <div class="subtitle">Cepat · Aman · Terpercaya</div>
 
+  <div class="tanggal">
+    Tanggal :
+    <input type="date" id="tanggal">
+  </div>
+
   <div class="row">
     <label>Pelanggan</label>
-    <input type="text" id="nama" value="YUDA">
+    <input type="text" value="YUDA">
   </div>
 
   <div class="row">
     <label>Motor</label>
-    <input type="text" id="motor" value="Honda Beat">
+    <input type="text" value="Honda Beat">
   </div>
 
   <div class="row">
@@ -118,7 +129,7 @@ button {
 
   <div class="row">
     <label>Keterangan</label>
-    <input type="text" id="status" value="LUNAS" class="status">
+    <input type="text" value="LUNAS" class="status">
   </div>
 
   <div class="footer">
@@ -144,8 +155,11 @@ function hitung() {
   document.getElementById("total").innerText = formatRupiah(total);
 }
 
+// tanggal hari ini otomatis
+document.getElementById("tanggal").valueAsDate = new Date();
+
 hitung();
 </script>
 
 </body>
-                                              </html>
+  </html>
