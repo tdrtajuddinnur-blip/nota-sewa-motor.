@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
@@ -12,7 +12,6 @@ body{
     background:#1e88e5;
     font-family: Arial, Helvetica, sans-serif;
 }
-
 .card{
     max-width:420px;
     margin:auto;
@@ -21,40 +20,34 @@ body{
     padding:24px;
     box-shadow:0 10px 25px rgba(0,0,0,.2);
 }
-
 h1{
     text-align:center;
     margin:0;
     font-size:26px;
     font-weight:800;
 }
-
 .subtitle{
     text-align:center;
     color:#777;
     font-size:14px;
     margin-top:4px;
 }
-
 .title{
     text-align:center;
     margin:16px 0;
     color:#1e88e5;
     font-weight:700;
 }
-
 .title span{
     display:block;
     font-size:20px;
     margin-top:4px;
 }
-
 hr{
     border:none;
     border-top:1px solid #e0e0e0;
     margin:18px 0;
 }
-
 .row{
     display:flex;
     justify-content:space-between;
@@ -62,35 +55,16 @@ hr{
     font-size:15px;
     margin:10px 0;
 }
-
 .value{
     font-weight:500;
     min-width:120px;
     text-align:right;
 }
-
-/* BISA EDIT */
-.edit{
-    outline:none;
-}
-.edit:focus{
-    background:#f1f8ff;
-    border-radius:4px;
-}
-
-.bold{
-    font-weight:800;
-}
-
-.total{
-    font-size:18px;
-}
-
-.lunas{
-    color:green;
-    font-weight:800;
-}
-
+.edit{ outline:none; }
+.edit:focus{ background:#f1f8ff; border-radius:4px; }
+.bold{ font-weight:800; }
+.total{ font-size:18px; }
+.lunas{ color:green; font-weight:800; }
 .footer{
     text-align:center;
     font-size:13px;
@@ -98,12 +72,7 @@ hr{
     margin-top:20px;
     line-height:1.5;
 }
-
-.footer strong{
-    display:block;
-    margin-top:6px;
-}
-
+.footer strong{ display:block; margin-top:6px; }
 button{
     margin-top:20px;
     width:100%;
@@ -116,19 +85,18 @@ button{
     border-radius:12px;
     cursor:pointer;
 }
-
-/* PRINT FIX */
+.toggle{
+    background:#444;
+    margin-top:10px;
+}
 @media print{
-    body{
-        background:none;
-        padding:0;
-    }
-    button{
-        display:none;
-    }
-    .card{
-        box-shadow:none;
-        border-radius:0;
+    body{ background:none; padding:0; }
+    button{ display:none; }
+    .card{ box-shadow:none; border-radius:0; }
+    body.thermal .card{
+        width:58mm;
+        padding:6mm;
+        font-size:12px;
     }
 }
 </style>
@@ -136,70 +104,34 @@ button{
 
 <body>
 
-<div class="card">
+<div class="card" id="nota">
     <h1>RENTAL MOTOR</h1>
     <div class="subtitle">Cepat • Aman • Terpercaya</div>
 
-    <div class="title">
-        Bukti Pembayaran
-        <span>SEWA MOTOR</span>
-    </div>
+    <div class="title">Bukti Pembayaran<span>SEWA MOTOR</span></div>
 
     <hr>
 
-    <div class="row">
-        <div>Pelanggan</div>
-        <div class="value edit" contenteditable="true">YUDA</div>
-    </div>
-
-    <div class="row">
-        <div>Periode Sewa</div>
-        <div class="value edit" contenteditable="true">Des 2025</div>
-    </div>
+    <div class="row"><div>Pelanggan</div><div class="value edit" contenteditable id="pelanggan">YUDA</div></div>
+    <div class="row"><div>Periode Sewa</div><div class="value edit" contenteditable id="periode">Des 2025</div></div>
 
     <hr>
 
-    <div class="row">
-        <div>Motor</div>
-        <div class="value edit" contenteditable="true">Honda Beat</div>
-    </div>
-
-    <div class="row">
-        <div>Harga / Hari</div>
-        <div class="value edit" contenteditable="true">Rp 70.000</div>
-    </div>
-
-    <div class="row">
-        <div>Lama Sewa</div>
-        <div class="value edit" contenteditable="true">2 Hari</div>
-    </div>
-
-    <div class="row">
-        <div>Biaya Antar Jemput</div>
-        <div class="value edit" contenteditable="true">Rp 0</div>
-    </div>
+    <div class="row"><div>Motor</div><div class="value edit" contenteditable id="motor">Honda Beat</div></div>
+    <div class="row"><div>Harga / Hari</div><div class="value edit" contenteditable id="harga">70000</div></div>
+    <div class="row"><div>Lama Sewa</div><div class="value edit" contenteditable id="lama">2</div></div>
+    <div class="row"><div>Biaya Antar Jemput</div><div class="value edit" contenteditable id="antar">0</div></div>
 
     <hr>
 
     <div class="row total">
         <div class="bold">Total Biaya</div>
-        <div class="bold edit" contenteditable="true">Rp 140.000</div>
+        <div class="bold" id="total">Rp 0</div>
     </div>
 
-    <div class="row">
-        <div>Keterangan</div>
-        <div class="lunas edit" contenteditable="true">LUNAS</div>
-    </div>
-
-    <div class="row">
-        <div>Admin</div>
-        <div class="value edit" contenteditable="true">Rental Motor</div>
-    </div>
-
-    <div class="row">
-        <div>Tanggal Pembayaran</div>
-        <div class="value edit" contenteditable="true">25 Des 2025</div>
-    </div>
+    <div class="row"><div>Keterangan</div><div class="lunas edit" contenteditable>LUNAS</div></div>
+    <div class="row"><div>Admin</div><div class="value edit" contenteditable>Rental Motor</div></div>
+    <div class="row"><div>Tanggal Pembayaran</div><div class="value edit" contenteditable id="tgl"></div></div>
 
     <div class="footer">
         Terima kasih atas kepercayaan Anda<br>
@@ -207,8 +139,54 @@ button{
         <strong>Rental Motor – Solusi Perjalanan Anda</strong>
     </div>
 
-    <button onclick="window.print()">Cetak Bukti</button>
+    <button onclick="cetak()">Cetak / PDF</button>
+    <button class="toggle" onclick="thermal()">Mode Thermal</button>
 </div>
+
+<script>
+function rupiah(n){
+    return 'Rp ' + n.toLocaleString('id-ID');
+}
+function hitung(){
+    let harga = parseInt(hargaEl.innerText) || 0;
+    let lama = parseInt(lamaEl.innerText) || 0;
+    let antar = parseInt(antarEl.innerText) || 0;
+    let total = (harga * lama) + antar;
+    totalEl.innerText = rupiah(total);
+}
+function cetak(){
+    simpan();
+    window.print();
+}
+function thermal(){
+    document.body.classList.toggle('thermal');
+}
+function simpan(){
+    let data = {
+        pelanggan: pelanggan.innerText,
+        total: total.innerText,
+        waktu: new Date().toLocaleString()
+    };
+    let list = JSON.parse(localStorage.getItem('transaksi') || '[]');
+    list.push(data);
+    localStorage.setItem('transaksi', JSON.stringify(list));
+}
+
+const hargaEl = document.getElementById('harga');
+const lamaEl = document.getElementById('lama');
+const antarEl = document.getElementById('antar');
+const totalEl = document.getElementById('total');
+const pelanggan = document.getElementById('pelanggan');
+
+document.querySelectorAll('.edit').forEach(e=>{
+    e.addEventListener('input', hitung);
+});
+
+document.getElementById('tgl').innerText =
+    new Date().toLocaleDateString('id-ID');
+
+hitung();
+</script>
 
 </body>
 </html>
