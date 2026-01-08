@@ -2,200 +2,210 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bukti Pembayaran</title>
+<title>Bukti Pembayaran Sewa Motor</title>
 
 <style>
-body{
-  font-family: Arial, sans-serif;
-  background:#1e88e5;
-  padding:20px;
-}
+    * {
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+    }
 
-.card{
-  background:#fff;
-  max-width:420px;
-  margin:auto;
-  padding:20px;
-  border-radius:12px;
-}
+    body {
+        background: #1e88e5;
+        margin: 0;
+        padding: 40px 0;
+    }
 
-h1{
-  text-align:center;
-  margin:0;
-}
+    .container {
+        width: 420px;
+        margin: auto;
+        background: #fff;
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 10px 25px rgba(0,0,0,.2);
+    }
 
-.sub{
-  text-align:center;
-  color:#777;
-  font-size:14px;
-}
+    h1 {
+        margin: 0;
+        text-align: center;
+        font-size: 26px;
+        font-weight: 800;
+    }
 
-.center{
-  text-align:center;
-  margin:10px 0;
-}
+    .sub {
+        text-align: center;
+        color: #777;
+        font-size: 14px;
+        margin-top: 4px;
+    }
 
-.blue{color:#1e88e5}
-.red{color:red;font-weight:bold}
+    .title {
+        text-align: center;
+        margin: 16px 0;
+        font-size: 18px;
+        font-weight: 700;
+        color: #1e88e5;
+    }
 
-hr{
-  border:none;
-  border-top:1px solid #ddd;
-  margin:15px 0;
-}
+    hr {
+        border: none;
+        border-top: 1px solid #ddd;
+        margin: 16px 0;
+    }
 
-.row{
-  display:flex;
-  justify-content:space-between;
-  font-size:15px;
-  margin:6px 0;
-}
+    .row {
+        display: flex;
+        justify-content: space-between;
+        margin: 8px 0;
+        font-size: 15px;
+    }
 
-.row input{
-  border:none;
-  text-align:right;
-  font-size:15px;
-  width:160px;
-}
+    .row strong {
+        font-weight: 600;
+    }
 
-.total{
-  font-weight:bold;
-  font-size:16px;
-}
+    .editable {
+        border-bottom: 1px dashed transparent;
+        padding: 2px 4px;
+        min-width: 120px;
+        text-align: right;
+    }
 
-.footer{
-  text-align:center;
-  font-size:14px;
-  margin-top:15px;
-}
+    .editable:focus {
+        outline: none;
+        border-bottom: 1px dashed #1e88e5;
+        background: #f1f8ff;
+    }
 
-button{
-  width:100%;
-  padding:12px;
-  background:#1e88e5;
-  color:#fff;
-  border:none;
-  border-radius:8px;
-  font-size:16px;
-  margin-top:15px;
-}
+    .total {
+        font-size: 18px;
+        font-weight: 800;
+    }
 
-/* ===== MODE CETAK ===== */
-@media print{
-  body{
-    background:#fff;
-    padding:0;
-  }
-  .card{
-    box-shadow:none;
-    max-width:100%;
-  }
-  button{
-    display:none;
-  }
-}
+    .lunas {
+        color: green;
+        font-weight: 700;
+    }
+
+    .footer {
+        text-align: center;
+        font-size: 13px;
+        color: #555;
+        margin-top: 20px;
+    }
+
+    .footer strong {
+        display: block;
+        margin-top: 6px;
+    }
+
+    .btn {
+        margin-top: 20px;
+        width: 100%;
+        padding: 14px;
+        background: #1e88e5;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background: #1565c0;
+    }
+
+    /* PRINT */
+    @media print {
+        body {
+            background: none;
+            padding: 0;
+        }
+        .btn {
+            display: none;
+        }
+        .container {
+            box-shadow: none;
+            width: 100%;
+            border-radius: 0;
+        }
+    }
 </style>
 </head>
 
 <body>
 
-<div class="card">
-  <h1>RENTAL MOTOR</h1>
-  <div class="sub">Cepat · Aman · Terpercaya</div>
+<div class="container" contenteditable="false">
+    <h1>RENTAL MOTOR</h1>
+    <div class="sub">Cepat • Aman • Terpercaya</div>
 
-  <div class="center">
-    Bukti Pembayaran<br>
-    <b class="blue">SEWA MOTOR</b>
-  </div>
+    <div class="title">Bukti Pembayaran<br><strong>SEWA MOTOR</strong></div>
 
-  <hr>
+    <hr>
 
-  <div class="row">
-    <div>Pelanggan</div>
-    <div class="blue">Yth. Bapak / Ibu <b><input value="Andri"></b></div>
-  </div>
+    <div class="row">
+        <span>Pelanggan</span>
+        <span class="editable" contenteditable="true">YUDA</span>
+    </div>
 
-  <div class="row">
-    <div>Periode Sewa</div>
-    <div><input value="Des 2025"></div>
-  </div>
+    <div class="row">
+        <span>Periode Sewa</span>
+        <span class="editable" contenteditable="true">Des 2025</span>
+    </div>
 
-  <hr>
+    <hr>
 
-  <div class="row">
-    <div>Motor</div>
-    <div><input value="Honda Beat"></div>
-  </div>
+    <div class="row">
+        <span>Motor</span>
+        <span class="editable" contenteditable="true">Honda Beat</span>
+    </div>
 
-  <div class="row">
-    <div>Harga / Hari</div>
-    <div>Rp <span id="hargaText">0</span></div>
-  </div>
+    <div class="row">
+        <span>Harga / Hari</span>
+        <span class="editable" contenteditable="true">Rp 70.000</span>
+    </div>
 
-  <div class="row">
-    <div>Lama Sewa</div>
-    <div><input id="hari" value="2"> Hari</div>
-  </div>
+    <div class="row">
+        <span>Lama Sewa</span>
+        <span class="editable" contenteditable="true">2 Hari</span>
+    </div>
 
-  <div class="row">
-    <div>Biaya Antar Jemput</div>
-    <div>Rp <span id="antarText">0</span></div>
-  </div>
+    <div class="row">
+        <span>Biaya Antar Jemput</span>
+        <span class="editable" contenteditable="true">Rp 0</span>
+    </div>
 
-  <hr>
+    <hr>
 
-  <div class="row total">
-    <div>Total Biaya</div>
-    <div id="totalText">Rp 0</div>
-  </div>
+    <div class="row total">
+        <span>Total Biaya</span>
+        <span class="editable" contenteditable="true">Rp 140.000</span>
+    </div>
 
-  <div class="row">
-    <div>Keterangan</div>
-    <div class="red"><input value="LUNAS"></div>
-  </div>
+    <div class="row">
+        <span>Keterangan</span>
+        <span class="lunas editable" contenteditable="true">LUNAS</span>
+    </div>
 
-  <div class="row">
-    <div>Admin</div>
-    <div><input value="Rental Motor"></div>
-  </div>
+    <div class="row">
+        <span>Admin</span>
+        <span class="editable" contenteditable="true">Rental Motor</span>
+    </div>
 
-  <div class="row">
-    <div>Tanggal Pembayaran</div>
-    <div><input type="date" id="tgl"></div>
-  </div>
+    <div class="row">
+        <span>Tanggal Pembayaran</span>
+        <span class="editable" contenteditable="true">25 Des 2025</span>
+    </div>
 
-  <hr>
+    <div class="footer">
+        Terima kasih atas kepercayaan Anda<br>
+        telah menggunakan jasa sewa motor kami
+        <strong>Rental Motor – Solusi Perjalanan Anda</strong>
+    </div>
 
-  <div class="footer">
-    Terima kasih atas kepercayaan Anda<br>
-    telah menggunakan jasa sewa motor kami<br><br>
-    <b>Rental Motor – Solusi Perjalanan Anda</b>
-  </div>
-
-  <button onclick="window.print()">Cetak Bukti</button>
+    <button class="btn" onclick="window.print()">Cetak Bukti</button>
 </div>
-
-<script>
-let harga = 100000;
-let antar = 20000;
-
-function rp(n){
-  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");
-}
-
-function hitung(){
-  let hari = Number(document.getElementById("hari").value)||0;
-  let total = (harga * hari) + antar;
-
-  hargaText.innerText = rp(harga);
-  antarText.innerText = rp(antar);
-  totalText.innerText = "Rp " + rp(total);
-}
-
-document.getElementById("tgl").valueAsDate = new Date();
-hitung();
-</script>
 
 </body>
 </html>
