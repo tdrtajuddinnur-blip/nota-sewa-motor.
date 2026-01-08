@@ -3,97 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bukti Pembayaran Sewa Motor</title>
+<title>Bukti Pembayaran</title>
 
 <style>
-body {
+body{
   font-family: Arial, sans-serif;
-  background: #1e88e5;
-  padding: 20px;
+  background:#1e88e5;
+  padding:20px;
 }
 
-.card {
-  background: #fff;
-  max-width: 420px;
-  margin: auto;
-  padding: 20px;
-  border-radius: 12px;
+.card{
+  background:#fff;
+  max-width:420px;
+  margin:auto;
+  padding:20px;
+  border-radius:12px;
 }
 
-h1 {
-  text-align: center;
-  margin: 0;
+h1{
+  text-align:center;
+  margin:0;
 }
 
-.tagline {
-  text-align: center;
-  color: #777;
-  font-size: 14px;
-  margin-bottom: 10px;
+.sub{
+  text-align:center;
+  color:#777;
+  font-size:14px;
 }
 
-.title {
-  text-align: center;
-  margin: 10px 0;
+.center{
+  text-align:center;
+  margin:10px 0;
 }
 
-.title b {
-  color: #1e88e5;
+.blue{color:#1e88e5}
+.red{color:red;font-weight:bold}
+
+hr{
+  border:none;
+  border-top:1px solid #ddd;
+  margin:15px 0;
 }
 
-hr {
-  border: none;
-  border-top: 1px solid #ddd;
-  margin: 15px 0;
+.row{
+  display:flex;
+  justify-content:space-between;
+  font-size:15px;
+  margin:6px 0;
 }
 
-.row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
-  font-size: 15px;
+.row input{
+  border:none;
+  text-align:right;
+  font-size:15px;
+  width:160px;
 }
 
-.label {
-  color: #444;
+.total{
+  font-weight:bold;
+  font-size:16px;
 }
 
-.value input {
-  border: none;
-  text-align: right;
-  font-size: 15px;
-  width: 160px;
+.footer{
+  text-align:center;
+  font-size:14px;
+  margin-top:15px;
 }
 
-.blue {
-  color: #1e88e5;
+button{
+  width:100%;
+  padding:12px;
+  background:#1e88e5;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  font-size:16px;
+  margin-top:15px;
 }
 
-.total {
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.lunas {
-  color: green;
-  font-weight: bold;
-}
-
-.footer {
-  text-align: center;
-  font-size: 14px;
-  margin-top: 15px;
-}
-
-button {
-  width: 100%;
-  padding: 12px;
-  background: #1e88e5;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  margin-top: 15px;
+/* ===== MODE CETAK ===== */
+@media print{
+  body{
+    background:#fff;
+    padding:0;
+  }
+  .card{
+    box-shadow:none;
+    max-width:100%;
+  }
+  button{
+    display:none;
+  }
 }
 </style>
 </head>
@@ -102,67 +102,67 @@ button {
 
 <div class="card">
   <h1>RENTAL MOTOR</h1>
-  <div class="tagline">Cepat · Aman · Terpercaya</div>
+  <div class="sub">Cepat · Aman · Terpercaya</div>
 
-  <div class="title">
+  <div class="center">
     Bukti Pembayaran<br>
-    <b>SEWA MOTOR</b>
+    <b class="blue">SEWA MOTOR</b>
   </div>
 
   <hr>
 
   <div class="row">
-    <div class="label">Pelanggan</div>
-    <div class="value blue">Yth. Bapak / Ibu <b><input value="YUDA"></b></div>
+    <div>Pelanggan</div>
+    <div class="blue">Yth. Bapak / Ibu <b><input value="Andri"></b></div>
   </div>
 
   <div class="row">
-    <div class="label">Periode Sewa</div>
-    <div class="value"><input value="Des 2025"></div>
+    <div>Periode Sewa</div>
+    <div><input value="Des 2025"></div>
   </div>
 
   <hr>
 
   <div class="row">
-    <div class="label">Motor</div>
-    <div class="value"><input value="Honda Beat"></div>
+    <div>Motor</div>
+    <div><input value="Honda Beat"></div>
   </div>
 
   <div class="row">
-    <div class="label">Harga / Hari</div>
-    <div class="value">Rp <input id="harga" value="70000"></div>
+    <div>Harga / Hari</div>
+    <div>Rp <span id="hargaText">0</span></div>
   </div>
 
   <div class="row">
-    <div class="label">Lama Sewa</div>
-    <div class="value"><input id="hari" value="2"> Hari</div>
+    <div>Lama Sewa</div>
+    <div><input id="hari" value="2"> Hari</div>
   </div>
 
   <div class="row">
-    <div class="label">Biaya Antar Jemput</div>
-    <div class="value">Rp <input id="antar" value="0"></div>
+    <div>Biaya Antar Jemput</div>
+    <div>Rp <span id="antarText">0</span></div>
   </div>
 
   <hr>
 
   <div class="row total">
     <div>Total Biaya</div>
-    <div id="total">Rp 0</div>
+    <div id="totalText">Rp 0</div>
   </div>
 
   <div class="row">
-    <div class="label">Keterangan</div>
-    <div class="value lunas"><input value="LUNAS"></div>
+    <div>Keterangan</div>
+    <div class="red"><input value="LUNAS"></div>
   </div>
 
   <div class="row">
-    <div class="label">Admin</div>
-    <div class="value"><input value="Rental Motor"></div>
+    <div>Admin</div>
+    <div><input value="Rental Motor"></div>
   </div>
 
   <div class="row">
-    <div class="label">Tanggal Pembayaran</div>
-    <div class="value"><input type="date" id="tanggal"></div>
+    <div>Tanggal Pembayaran</div>
+    <div><input type="date" id="tgl"></div>
   </div>
 
   <hr>
@@ -177,19 +177,23 @@ button {
 </div>
 
 <script>
-function rupiah(n){
-  return "Rp " + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");
+let harga = 100000;
+let antar = 20000;
+
+function rp(n){
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");
 }
 
 function hitung(){
-  let h = Number(harga.value)||0;
-  let d = Number(hari.value)||0;
-  let a = Number(antar.value)||0;
-  total.innerText = rupiah(h*d + a);
+  let hari = Number(document.getElementById("hari").value)||0;
+  let total = (harga * hari) + antar;
+
+  hargaText.innerText = rp(harga);
+  antarText.innerText = rp(antar);
+  totalText.innerText = "Rp " + rp(total);
 }
 
-harga.oninput = hari.oninput = antar.oninput = hitung;
-document.getElementById("tanggal").valueAsDate = new Date();
+document.getElementById("tgl").valueAsDate = new Date();
 hitung();
 </script>
 
