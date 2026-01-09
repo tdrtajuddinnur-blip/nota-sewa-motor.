@@ -1,192 +1,162 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bukti Pembayaran</title>
-
+<title>Bukti Pembayaran Sewa Motor</title>
 <style>
-body{
-    margin:0;
-    padding:30px 0;
-    background:#1e88e5;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.card{
-    max-width:420px;
-    margin:auto;
-    background:#fff;
-    border-radius:18px;
-    padding:24px;
-    box-shadow:0 10px 25px rgba(0,0,0,.2);
-}
-h1{
-    text-align:center;
-    margin:0;
-    font-size:26px;
-    font-weight:800;
-}
-.subtitle{
-    text-align:center;
-    color:#777;
-    font-size:14px;
-    margin-top:4px;
-}
-.title{
-    text-align:center;
-    margin:16px 0;
-    color:#1e88e5;
-    font-weight:700;
-}
-.title span{
-    display:block;
-    font-size:20px;
-    margin-top:4px;
-}
-hr{
-    border:none;
-    border-top:1px solid #e0e0e0;
-    margin:18px 0;
-}
-.row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-size:15px;
-    margin:10px 0;
-}
-.value{
-    font-weight:500;
-    min-width:120px;
-    text-align:right;
-}
-.edit{ outline:none; }
-.edit:focus{ background:#f1f8ff; border-radius:4px; }
-.bold{ font-weight:800; }
-.total{ font-size:18px; }
-.lunas{ color:green; font-weight:800; }
-.footer{
-    text-align:center;
-    font-size:13px;
-    color:#555;
-    margin-top:20px;
-    line-height:1.5;
-}
-.footer strong{ display:block; margin-top:6px; }
-button{
-    margin-top:20px;
-    width:100%;
-    padding:14px;
-    background:#1e88e5;
-    border:none;
-    color:#fff;
-    font-size:16px;
-    font-weight:600;
-    border-radius:12px;
-    cursor:pointer;
-}
-.toggle{
-    background:#444;
-    margin-top:10px;
-}
-@media print{
-    body{ background:none; padding:0; }
-    button{ display:none; }
-    .card{ box-shadow:none; border-radius:0; }
-    body.thermal .card{
-        width:58mm;
-        padding:6mm;
-        font-size:12px;
+    body {
+        font-family: Arial, sans-serif;
+        background: #e9f2fb;
+        margin: 0;
+        padding: 20px;
     }
-}
+
+    .container {
+        max-width: 420px;
+        margin: auto;
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    h2 {
+        text-align: center;
+        color: #1e88e5;
+        margin: 5px 0 15px;
+    }
+
+    .subtitle {
+        text-align: center;
+        color: #777;
+        font-size: 14px;
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+        margin: 8px 0;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 6px;
+    }
+
+    .label {
+        color: #444;
+    }
+
+    .value input {
+        border: none;
+        text-align: right;
+        font-weight: bold;
+        width: 150px;
+        background: transparent;
+    }
+
+    .total {
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+
+    .status {
+        color: green;
+        font-weight: bold;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 20px;
+        background: #1e88e5;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #1565c0;
+    }
+
+    @media print {
+        button {
+            display: none;
+        }
+        body {
+            background: #fff;
+        }
+    }
 </style>
 </head>
-
 <body>
 
-<div class="card" id="nota">
+<div class="container" id="printArea">
     <h1>RENTAL MOTOR</h1>
     <div class="subtitle">Cepat • Aman • Terpercaya</div>
+    <h2>Bukti Pembayaran<br>SEWA MOTOR</h2>
 
-    <div class="title">Bukti Pembayaran<span>SEWA MOTOR</span></div>
+    <div class="row">
+        <div class="label">Pelanggan</div>
+        <div class="value"><input value="YUDA"></div>
+    </div>
 
-    <hr>
+    <div class="row">
+        <div class="label">Periode Sewa</div>
+        <div class="value"><input value="Des 2025"></div>
+    </div>
 
-    <div class="row"><div>Pelanggan</div><div class="value edit" contenteditable id="pelanggan">YUDA</div></div>
-    <div class="row"><div>Periode Sewa</div><div class="value edit" contenteditable id="periode">Des 2025</div></div>
+    <div class="row">
+        <div class="label">Motor</div>
+        <div class="value"><input value="Honda Beat"></div>
+    </div>
 
-    <hr>
+    <div class="row">
+        <div class="label">Harga / Hari</div>
+        <div class="value"><input value="Rp 70.000"></div>
+    </div>
 
-    <div class="row"><div>Motor</div><div class="value edit" contenteditable id="motor">Honda Beat</div></div>
-    <div class="row"><div>Harga / Hari</div><div class="value edit" contenteditable id="harga">70000</div></div>
-    <div class="row"><div>Lama Sewa</div><div class="value edit" contenteditable id="lama">2</div></div>
-    <div class="row"><div>Biaya Antar Jemput</div><div class="value edit" contenteditable id="antar">0</div></div>
+    <div class="row">
+        <div class="label">Lama Sewa</div>
+        <div class="value"><input value="2 Hari"></div>
+    </div>
 
-    <hr>
+    <div class="row">
+        <div class="label">Biaya Antar Jemput</div>
+        <div class="value"><input value="Rp 0"></div>
+    </div>
 
     <div class="row total">
-        <div class="bold">Total Biaya</div>
-        <div class="bold" id="total">Rp 0</div>
+        <div>Total Biaya</div>
+        <div><input value="Rp 140.000"></div>
     </div>
 
-    <div class="row"><div>Keterangan</div><div class="lunas edit" contenteditable>LUNAS</div></div>
-    <div class="row"><div>Admin</div><div class="value edit" contenteditable>Rental Motor</div></div>
-    <div class="row"><div>Tanggal Pembayaran</div><div class="value edit" contenteditable id="tgl"></div></div>
+    <div class="row">
+        <div class="label">Keterangan</div>
+        <div class="status">LUNAS</div>
+    </div>
 
-    <div class="footer">
+    <div class="row">
+        <div class="label">Admin</div>
+        <div class="value"><input value="Rental Motor"></div>
+    </div>
+
+    <div class="row">
+        <div class="label">Tanggal Pembayaran</div>
+        <div class="value"><input value="25 Des 2025"></div>
+    </div>
+
+    <p style="text-align:center;font-size:13px;color:#666;margin-top:15px">
         Terima kasih atas kepercayaan Anda<br>
-        telah menggunakan jasa sewa motor kami
-        <strong>Rental Motor – Solusi Perjalanan Anda</strong>
-    </div>
+        <b>Rental Motor – Solusi Perjalanan Anda</b>
+    </p>
 
-    <button onclick="cetak()">Cetak / PDF</button>
-    <button class="toggle" onclick="thermal()">Mode Thermal</button>
+    <button onclick="window.print()">Cetak Bukti</button>
 </div>
-
-<script>
-function rupiah(n){
-    return 'Rp ' + n.toLocaleString('id-ID');
-}
-function hitung(){
-    let harga = parseInt(hargaEl.innerText) || 0;
-    let lama = parseInt(lamaEl.innerText) || 0;
-    let antar = parseInt(antarEl.innerText) || 0;
-    let total = (harga * lama) + antar;
-    totalEl.innerText = rupiah(total);
-}
-function cetak(){
-    simpan();
-    window.print();
-}
-function thermal(){
-    document.body.classList.toggle('thermal');
-}
-function simpan(){
-    let data = {
-        pelanggan: pelanggan.innerText,
-        total: total.innerText,
-        waktu: new Date().toLocaleString()
-    };
-    let list = JSON.parse(localStorage.getItem('transaksi') || '[]');
-    list.push(data);
-    localStorage.setItem('transaksi', JSON.stringify(list));
-}
-
-const hargaEl = document.getElementById('harga');
-const lamaEl = document.getElementById('lama');
-const antarEl = document.getElementById('antar');
-const totalEl = document.getElementById('total');
-const pelanggan = document.getElementById('pelanggan');
-
-document.querySelectorAll('.edit').forEach(e=>{
-    e.addEventListener('input', hitung);
-});
-
-document.getElementById('tgl').innerText =
-    new Date().toLocaleDateString('id-ID');
-
-hitung();
-</script>
 
 </body>
 </html>
