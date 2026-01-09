@@ -2,100 +2,109 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bukti Pembayaran Sewa Motor</title>
+
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #e9f2fb;
-        margin: 0;
-        padding: 20px;
-    }
+body{
+    font-family: Arial, sans-serif;
+    background:#1e88e5;
+    margin:0;
+    padding:20px;
+}
 
-    .container {
-        max-width: 420px;
-        margin: auto;
-        background: #fff;
-        border-radius: 10px;
-        padding: 20px;
-    }
+.card{
+    max-width:420px;
+    margin:auto;
+    background:#fff;
+    border-radius:16px;
+    padding:20px;
+}
 
-    h1 {
-        text-align: center;
-        margin: 5px 0;
-    }
+h1{
+    text-align:center;
+    margin:5px 0;
+}
 
-    h2 {
-        text-align: center;
-        color: #1e88e5;
-        margin: 5px 0 15px;
-    }
+.subtitle{
+    text-align:center;
+    color:#777;
+    font-size:14px;
+}
 
-    .subtitle {
-        text-align: center;
-        color: #777;
-        font-size: 14px;
-    }
+h2{
+    text-align:center;
+    color:#1e88e5;
+    margin:10px 0 20px;
+}
 
-    .row {
-        display: flex;
-        justify-content: space-between;
-        margin: 8px 0;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 6px;
-    }
+.row{
+    display:flex;
+    justify-content:space-between;
+    padding:8px 0;
+    border-bottom:1px solid #eee;
+}
 
-    .label {
-        color: #444;
-    }
+.label{
+    color:#444;
+}
 
-    .value input {
-        border: none;
-        text-align: right;
-        font-weight: bold;
-        width: 150px;
-        background: transparent;
-    }
+.value input{
+    border:none;
+    background:transparent;
+    text-align:right;
+    font-weight:bold;
+    width:160px;
+}
 
-    .total {
-        font-size: 18px;
-        font-weight: bold;
-        margin-top: 15px;
-    }
+.total{
+    font-size:18px;
+    font-weight:bold;
+    margin-top:10px;
+}
 
-    .status {
-        color: green;
-        font-weight: bold;
-    }
+.status{
+    color:green;
+    font-weight:bold;
+}
 
-    button {
-        width: 100%;
-        padding: 12px;
-        margin-top: 20px;
-        background: #1e88e5;
-        color: #fff;
-        border: none;
-        border-radius: 8px;
-        font-size: 16px;
-        cursor: pointer;
-    }
+.footer{
+    text-align:center;
+    font-size:13px;
+    color:#666;
+    margin-top:15px;
+}
 
-    button:hover {
-        background: #1565c0;
-    }
+button{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    cursor:pointer;
+}
 
-    @media print {
-        button {
-            display: none;
-        }
-        body {
-            background: #fff;
-        }
+.print{
+    background:#1e88e5;
+    color:#fff;
+}
+
+@media print{
+    body{
+        background:#fff;
+        padding:0;
     }
+    button{
+        display:none;
+    }
+}
 </style>
 </head>
+
 <body>
 
-<div class="container" id="printArea">
+<div class="card">
     <h1>RENTAL MOTOR</h1>
     <div class="subtitle">Cepat • Aman • Terpercaya</div>
     <h2>Bukti Pembayaran<br>SEWA MOTOR</h2>
@@ -132,7 +141,7 @@
 
     <div class="row total">
         <div>Total Biaya</div>
-        <div><input value="Rp 140.000"></div>
+        <div class="value"><input value="Rp 140.000"></div>
     </div>
 
     <div class="row">
@@ -150,12 +159,12 @@
         <div class="value"><input value="25 Des 2025"></div>
     </div>
 
-    <p style="text-align:center;font-size:13px;color:#666;margin-top:15px">
+    <div class="footer">
         Terima kasih atas kepercayaan Anda<br>
         <b>Rental Motor – Solusi Perjalanan Anda</b>
-    </p>
+    </div>
 
-    <button onclick="window.print()">Cetak Bukti</button>
+    <button class="print" onclick="window.print()">Cetak Bukti</button>
 </div>
 
 </body>
